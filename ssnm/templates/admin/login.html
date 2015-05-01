@@ -1,11 +1,11 @@
 {% extends "admin/base_site.html" %}
 {% load i18n admin_static %}
 
-{% block title %}Log In{% endblock %}
-
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "/media/admin/css/login.css" %}" />{% endblock %}
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />{% endblock %}
 
 {% block bodyclass %}login{% endblock %}
+
+{% block nav-global %}{% endblock %}
 
 {% block content_title %}{% endblock %}
 
@@ -25,6 +25,7 @@ login through WIND with it</p>
 <p>otherwise: </p>
 
 <form action="{{ app_path }}" method="post" id="login-form">
+    {% csrf_token %}
   <div class="form-row">
     <label for="id_username">{% trans 'Username:' %}</label> <input type="text" name="username" id="id_username" />
   </div>
@@ -43,3 +44,5 @@ document.getElementById('id_username').focus()
 </script>
 </div>
 {% endblock %}
+
+
