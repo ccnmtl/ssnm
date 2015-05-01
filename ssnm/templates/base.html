@@ -10,8 +10,12 @@
     <title>SSNM: {% block title %}{% endblock %}</title>
 
     <link rel="shortcut icon" href="{{STATIC_URL}}img/favicon.ico" type="image/x-icon" />
+{% compress css %}
     <link href="{{STATIC_URL}}css/ecomap.css" rel="stylesheet">
+{% endcompress %}
+{% compress js %}
     <script src="{{STATIC_URL}}js/jquery-1.7.2.min.js"></script>
+{% endcompress %}
     {% block css %}{% endblock %}
     {% block javascript %}{% endblock %}
   </head>
