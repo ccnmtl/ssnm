@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% load bootstrap %}
-{% load static from staticfiles %}
+
 {% block title %}My Maps{% endblock %}
 {% block breadcrumb %}My Maps{% endblock %}
 {% block content %}
     {% block javascript %}
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript">
     function confirmation(map) {
         var current = location.href;
