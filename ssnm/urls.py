@@ -2,8 +2,8 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
-
 from registration.backends.default.views import RegistrationView
+
 
 from ssnm.main.models import CreateAccountForm
 
@@ -34,6 +34,11 @@ urlpatterns = patterns(
     logout_page,
     admin_logout_page,
     auth_urls,
+    url(r'^crossdomain.xml$',
+        'flashpolicies.views.simple',
+        {'domains': [settings.STATIC_URL, '*.ccnmtl.columbia.edu']}),
+    (r'^flash/(?P<path>.*)$',
+     'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^accounts/register/$', RegistrationView.as_view(
         form_class=CreateAccountForm),
         name='registration_register'),
@@ -74,7 +79,6 @@ urlpatterns = patterns(
     (r'^admin/', include(admin.site.urls)),
     (r'^stats/$', TemplateView.as_view(template_name="stats.html")),
     (r'smoketest/', include('smoketest.urls')),
-
 )
 
 if settings.DEBUG:

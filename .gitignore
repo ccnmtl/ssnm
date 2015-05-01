@@ -11,3 +11,4 @@ local_settings.py
 .coverage
 .project
 .pydevproject
+.settings

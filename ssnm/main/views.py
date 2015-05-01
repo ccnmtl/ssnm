@@ -3,12 +3,19 @@
 from xml.dom.minidom import parseString
 
 from django import forms
-from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 from ssnm.main.models import Ecomap
+
+
+def context_processor(request):
+    ctx = {}
+    ctx['MEDIA_URL'] = settings.MEDIA_URL
+    return ctx
 
 
 @login_required
