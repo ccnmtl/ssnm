@@ -47,7 +47,7 @@ def display(request, map_id):
 def get_map(request, map_id):
     '''User has requested a saved ecomap - retrieve it.'''
     ecomap = Ecomap.objects.get(pk=map_id)
-    return render(request, 'game_test.html', {'map': ecomap})
+    return render(request, 'map_view.html', {'map': ecomap})
 
 
 def handle_valid_map_details_form(form, ecomap, old_name):
@@ -138,8 +138,8 @@ def show_maps(request):
     Allow user to click on one and have it retrieved.'''
     user_obj = User.objects.get(username=str(request.user))
     maps = Ecomap.objects.filter(owner=user_obj)
-    return render(request, "map_page.html",
-                  {'maps': maps, 'user': user_obj, })
+    return render(request, "map_list.html",
+                  {'maps': maps, 'user': user_obj})
 
 
 @login_required
@@ -147,10 +147,8 @@ def go_home(request, map_id):
     '''Enable back to maps functionality in flash.'''
     user_obj = User.objects.get(username=str(request.user))
     maps = Ecomap.objects.filter(owner=user_obj)
-    return render(
-        request,
-        "map_page.html",
-        {'maps': maps, 'user': user_obj, })
+    return render(request, "map_list.html",
+                  {'maps': maps, 'user': user_obj})
 
 
 @login_required
