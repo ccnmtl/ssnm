@@ -21,7 +21,7 @@ DATABASES = {
         'PASSWORD': '',
     }
 }
-STATIC_URL = '/media/'
+
 if 'test' in sys.argv or 'jenkins' in sys.argv:
     DATABASES = {
         'default': {
@@ -54,8 +54,6 @@ TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = False
-MEDIA_ROOT = "/var/www/ssnm/uploads/"
-MEDIA_URL = '/uploads/'
 SECRET_KEY = ')ng#)ef_u@_^zvvu@dxm7ql-yb^_!a6%v3v^j3b(mp+)l+5%@h'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -71,6 +69,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'djangowind.context.context_processor',
     'stagingcontext.staging_processor',
     'django.core.context_processors.static',
+    'ssnm.main.views.context_processor'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -84,7 +83,7 @@ MIDDLEWARE_CLASSES = (
     'impersonate.middleware.ImpersonateMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'waffle.middleware.WaffleMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware'
 )
 
 ROOT_URLCONF = 'ssnm.urls'
@@ -152,22 +151,23 @@ EMAIL_HOST = 'localhost'
 SERVER_EMAIL = "ssnm@ccnmtl.columbia.edu"
 DEFAULT_FROM_EMAIL = SERVER_EMAIL
 
+# Flash components are served off the local server
+MEDIA_URL = '/flash/'
+MEDIA_ROOT = 'flash'
 
-# put any static media here to override app served static media
-STATICMEDIA_MOUNTS = (
-    ('/sitemedia', 'sitemedia'),
-)
-
-STATIC_ROOT = "/tmp/ssnm/static"
-STATICFILES_DIRS = ("media/",)
+# Static resources are served off of S3
+STATIC_URL = "/media/"
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), "../media")
+STATICFILES_DIRS = ('media/',)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
-COMPRESS_URL = "/media/"
-COMPRESS_ROOT = STATIC_ROOT
 
+COMPRESS_URL = "/media/"
+COMPRESS_ROOT = "media/"
+AWS_QUERYSTRING_AUTH = False
 
 CAS_BASE = "https://cas.columbia.edu/"
 AUTHENTICATION_BACKENDS = ('djangowind.auth.SAMLAuthBackend',
