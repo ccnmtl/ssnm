@@ -5,7 +5,6 @@ pyenchant==1.5.1
 smartypants==1.6.0.2
 uuid==1.30
 psycopg2==2.5.4
-nose==1.3.4
 versiontools==1.9.1
 statsd==3.0.1
 pep8==1.5.7
@@ -38,7 +37,7 @@ djangowind==0.13.2
 tagging==0.3-pre
 typogrify==1.0
 gunicorn==19.3.0
-boto==2.36.0
+boto==2.38.0
 astroid==1.3.4
 python-dateutil==2.4.0
 
@@ -47,7 +46,6 @@ django-staticmedia==0.2.2
 django-templatetag-sugar==0.1
 django-paging==0.2.5
 django-annoying==0.8.1
-django-nose==1.3
 django-appconf==0.6
 django-ga-context==0.1.0
 django-compressor==1.5
@@ -56,7 +54,7 @@ raven==5.2.0
 django-bootstrap-form==3.1.0
 django-debug-toolbar==1.2.2
 django-waffle==0.10.1
-django-jenkins==0.16.3
+django-jenkins==0.17.0
 django-smoketest==0.3.0
 django-extensions==1.1.0
 django-stagingcontext==0.1.0
