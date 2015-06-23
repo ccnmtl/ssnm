@@ -11,7 +11,7 @@ pep8==1.5.7
 pyflakes==0.8.1
 mccabe==0.2.1
 flake8==2.2.5
-cssselect==0.8
+cssselect==0.9.1
 BeautifulSoup==3.2.1
 lxml==3.4.4
 fuzzywuzzy==0.4.0
