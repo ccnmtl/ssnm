@@ -9,6 +9,16 @@ from django.contrib.auth.models import User
 from django.test import TestCase, RequestFactory
 
 
+class SimpleViewTest(TestCase):
+    def setUp(self):
+        self.factory = RequestFactory()
+
+    def test_smoketest(self):
+        """ just run the smoketests. we don't care if they pass/fail """
+        response = self.client.get("/smoketest/")
+        self.assertEquals(response.status_code, 200)
+
+
 class TestView(TestCase):
     def setUp(self):
         '''Set up method for testing views.'''
