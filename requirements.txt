@@ -4,7 +4,7 @@ Markdown==2.6.2
 pyenchant==1.6.6
 smartypants==1.6.0.2
 uuid==1.30
-psycopg2==2.5.4
+psycopg2==2.6.1
 versiontools==1.9.1
 statsd==3.1
 pep8==1.5.7
