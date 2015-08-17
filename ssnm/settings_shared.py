@@ -1,6 +1,7 @@
 # Django settings for ssnm project.
 import os.path
 import sys
+from django.contrib import messages
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -56,30 +57,30 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.request',
-    'django.core.context_processors.static',
-    'django.contrib.messages.context_processors.messages',
-    'djangowind.context.context_processor',
-    'stagingcontext.staging_processor',
-    'django.core.context_processors.static',
-    'ssnm.main.views.context_processor'
+    'django.contrib.auth.context_processors.auth', #
+    'django.template.context_processors.debug',#updated
+    'django.template.context_processors.request',#updated
+    'django.template.context_processors.static',#updated
+    'django.contrib.messages.context_processors.messages',#
+    'djangowind.context.context_processor',#
+    'stagingcontext.staging_processor',#
+    'ssnm.main.views.context_processor',#
 )
 
+
 MIDDLEWARE_CLASSES = (
-    'django_statsd.middleware.GraphiteRequestTimingMiddleware',
-    'django_statsd.middleware.GraphiteMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'django.middleware.transaction.TransactionMiddleware',
-    'impersonate.middleware.ImpersonateMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django_statsd.middleware.GraphiteRequestTimingMiddleware',#
+    'django_statsd.middleware.GraphiteMiddleware',#
+    'django.middleware.common.CommonMiddleware',#
+    'django.contrib.sessions.middleware.SessionMiddleware',#
+    'django.contrib.auth.middleware.AuthenticationMiddleware',#
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',#
+    'impersonate.middleware.ImpersonateMiddleware',#
+    'debug_toolbar.middleware.DebugToolbarMiddleware',#
     'waffle.middleware.WaffleMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware'
+    'django.contrib.messages.middleware.MessageMiddleware',#
 )
+
 
 ROOT_URLCONF = 'ssnm.urls'
 
@@ -89,39 +90,42 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.flatpages',
-    'django.contrib.messages',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.staticfiles',
-    'django_extensions',
-    'django_jenkins',
-    'django_markwhat',
-    'django_statsd',
-    'debug_toolbar',
+    'django.contrib.admin', #
+    'django.contrib.auth', #
+    'django.contrib.contenttypes', #
+    'django.contrib.flatpages', #
+    'django.contrib.messages', #
+    'django.contrib.sessions', #
+    'django.contrib.sites', #
+    'django.contrib.staticfiles', #
+    'django_extensions', #
+    'django_jenkins', #
+    'django_markwhat', #
+    'django_statsd', #
+    'debug_toolbar', #
     'bootstrapform',
-    'compressor',
+    'compressor', #
     'gunicorn',
-    'impersonate',
+    'impersonate', #
     'registration',
-    'smoketest',
+    'smoketest', #
     'storages',
     'tagging',
     'typogrify',
-    'waffle',
+    'waffle', #
     'ssnm.main',
 ]
 
+REGISTRATION_APPLICATION_MODEL = 'registration.Application'
+
+MIGRATION_MODULES = {
+    'registration': 'ssnm.migrations.registration',
+}
+
 ACCOUNT_ACTIVATION_DAYS = 1
 
-LETTUCE_APPS = (
-    'ssnm.main',
-)
-
 INTERNAL_IPS = ('127.0.0.1', )
+
 DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.version.VersionDebugPanel',
     'debug_toolbar.panels.timer.TimerDebugPanel',
@@ -131,7 +135,11 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.sql.SQLDebugPanel',
     'debug_toolbar.panels.signals.SignalDebugPanel',
 )
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INSERT_BEFORE': '<span class="djdt-insert-here">',
+}
+
 
 STATSD_CLIENT = 'statsd.client'
 STATSD_PREFIX = 'ssnm'
@@ -149,14 +157,15 @@ MEDIA_URL = '/flash/'
 MEDIA_ROOT = 'flash'
 
 # Static resources are served off of S3
-STATIC_URL = "/media/"
-STATIC_ROOT = os.path.join(os.path.dirname(__file__), "../media")
-STATICFILES_DIRS = ('media/',)
+STATIC_URL = "/media/" #
+STATIC_ROOT = "/tmp/ssnm/static"
+STATICFILES_DIRS = ("media/",)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
 
 COMPRESS_URL = "/media/"
 COMPRESS_ROOT = "media/"
@@ -174,7 +183,7 @@ WIND_AFFIL_HANDLERS = ['djangowind.auth.AffilGroupMapper',
 WIND_STAFF_MAPPER_GROUPS = ['tlc.cunix.local:columbia.edu']
 WIND_SUPERUSER_MAPPER_GROUPS = [
     'anp8', 'jb2410', 'zm4', 'egr2107',
-    'sld2131', 'amm8', 'mar227', 'cld2156']
+    'sld2131', 'amm8', 'mar227', 'jed2161', 'cld2156']
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 SESSION_COOKIE_HTTPONLY = True
