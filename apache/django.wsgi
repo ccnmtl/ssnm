@@ -8,8 +8,8 @@ sys.path.append('/var/www/ssnm/ssnm/')
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'ssnm.settings_production'
 
-import django.core.handlers.wsgi
+from django.core.wsgi import get_wsgi_application
 import django
 django.setup()
 
-application = django.core.handlers.wsgi.WSGIHandler()
+application = get_wsgi_application()
