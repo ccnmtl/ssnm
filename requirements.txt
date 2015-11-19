@@ -43,7 +43,7 @@ logilab-astng==0.24.3
 pylint==1.4.4
 six==1.10.0
 sqlparse==0.1.16
-djangowind==0.13.3
+djangowind==0.14.1
 tagging==0.3-pre
 typogrify==2.0.7
 gunicorn==19.3.0
