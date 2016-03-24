@@ -119,7 +119,7 @@ def get_map_details(request, map_id=""):
                 ecomap.save()
             return HttpResponseRedirect('/ecomap/' + str(ecomap.pk))
 
-        elif request.POST['name'] == "":
+        if request.POST['name'] == "":
             ecomap.delete()
 
     elif map_id != "":
