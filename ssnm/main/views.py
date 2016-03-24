@@ -115,8 +115,7 @@ def get_map_details(request, map_id=""):
             ecomap.description = form.cleaned_data['description']
             eco_xml = new_xml % ecomap.name
             ecomap.ecomap_xml = eco_xml
-            if ecomap.name != '':
-                ecomap.save()
+            save_if_not_empty(ecomap)
             return HttpResponseRedirect('/ecomap/' + str(ecomap.pk))
 
         if request.POST['name'] == "":
@@ -130,6 +129,11 @@ def get_map_details(request, map_id=""):
     else:
         form = EcomapForm()
     return render(request, 'details.html', {'form': form})
+
+
+def save_if_not_empty(ecomap):
+    if ecomap.name != '':
+        ecomap.save()
 
 
 @login_required
