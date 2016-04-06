@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from registration.backends.default.views import RegistrationView
 
 
-from ssnm.main.models import CreateAccountForm
+from ssnm.main.forms import CreateAccountForm
 
 
 admin.autodiscover()
