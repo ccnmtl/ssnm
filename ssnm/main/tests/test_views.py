@@ -15,8 +15,7 @@ class SimpleViewTest(TestCase):
 
     def test_smoketest(self):
         """ just run the smoketests. we don't care if they pass/fail """
-        response = self.client.get("/smoketest/")
-        self.assertEquals(response.status_code, 200)
+        self.client.get("/smoketest/")
 
 
 class TestView(TestCase):
