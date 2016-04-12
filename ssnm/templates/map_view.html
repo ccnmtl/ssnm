@@ -18,7 +18,7 @@
   codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
    width="685px" height="470px" align="middle" >
         <param name="allowScriptAccess" value="sameDomain" />
-        <param name="movie" value="{{MEDIA_URL}}ecomap.swf" />
+        <param name="movie" value="{{STATIC__URL}}ecomap.swf" />
         <param name="loop" value="false" />
         <param name="menu" value="false" />
         <param name="quality" value="high" />
@@ -27,7 +27,7 @@
         <param name="bgcolor" value="#ffffff" />
         <param  name="flashvars" value="server=/ecomap/{{map.id}}/display/&amp;returnPath=back_to_list_button_clicked" />
             <embed
-            src="{{MEDIA_URL}}ecomap.swf"
+            src="{{STATIC_URL}}ecomap.swf"
             loop="false" menu="false"
             quality="high" 
             scale="noscale" 
