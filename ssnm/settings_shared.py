@@ -20,7 +20,6 @@ INSTALLED_APPS += [  # noqa
     'django_extensions',
     'bootstrapform',
     'registration',
-    'tagging',
     'typogrify',
     'ssnm.main',
 ]
