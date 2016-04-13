@@ -10,7 +10,8 @@ locals().update(
         INSTALLED_APPS=INSTALLED_APPS,
     ))
 
-# flash component location
+# Flash components are served off the local server
+MEDIA_URL = '/flash/'
 MEDIA_ROOT = "/var/www/ssnm/ssnm/flash/"
 
 try:
