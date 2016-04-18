@@ -28,7 +28,7 @@
             {% if request.user.is_anonymous %}
                 <a href="/accounts/login/?next=/">Log in</a>
             {% else %}
-                <a href="/logout/">Log out</a>
+                <a href="/accounts/logout/?next=/">Log out</a>
             {% endif %}
             </li>
         {% endblock %}
