@@ -26,10 +26,6 @@ INSTALLED_APPS += [  # noqa
 
 REGISTRATION_APPLICATION_MODEL = 'registration.Application'
 
-MIGRATION_MODULES = {
-    'registration': 'ssnm.migrations.registration',
-}
-
 ACCOUNT_ACTIVATION_DAYS = 1
 
 INTERNAL_IPS = ('127.0.0.1', )
