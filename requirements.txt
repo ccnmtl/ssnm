@@ -49,7 +49,7 @@ djangowind==0.14.3
 tagging==0.3-pre
 typogrify==2.0.7
 gunicorn==19.3.0
-boto==2.38.0
+boto==2.40.0
 lazy-object-proxy==1.2.1
 wrapt==1.10.6
 astroid==1.4.5
