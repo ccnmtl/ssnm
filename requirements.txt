@@ -52,7 +52,7 @@ typogrify==2.0.7
 gunicorn==19.4.5
 boto==2.40.0
 lazy-object-proxy==1.2.2
-wrapt==1.10.6
+wrapt==1.10.8
 astroid==1.4.5
 python-dateutil==2.5.3
 contextlib2==0.5.2
