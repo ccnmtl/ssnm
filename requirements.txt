@@ -54,7 +54,7 @@ gunicorn==19.6.0
 boto==2.42.0
 lazy-object-proxy==1.2.2
 wrapt==1.10.8
-astroid==1.4.7
+astroid==1.4.8
 python-dateutil==2.5.3
 contextlib2==0.5.3
 Jinja2==2.8
