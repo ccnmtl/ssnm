@@ -12,9 +12,9 @@ PROJECT_APPS = [
 
 USE_TZ = True
 
-TEMPLATE_CONTEXT_PROCESSORS += [  # noqa
-    'ssnm.main.views.context_processor',
-]
+TEMPLATES[0]['OPTIONS']['context_processors'].append(  # noqa
+    'ssnm.main.views.context_processor'
+)
 
 INSTALLED_APPS += [  # noqa
     'django_extensions',
