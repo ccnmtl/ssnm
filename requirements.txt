@@ -57,7 +57,7 @@ boto==2.43.0
 lazy-object-proxy==1.2.2
 wrapt==1.10.8
 astroid==1.4.8
-python-dateutil==2.5.3
+python-dateutil==2.6.0
 contextlib2==0.5.4
 Jinja2==2.8
 Markupsafe==0.23
