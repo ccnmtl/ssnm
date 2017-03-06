@@ -52,7 +52,7 @@ sqlparse==0.2.3
 djangowind==0.16.1
 tagging==0.3-pre
 typogrify==2.0.7
-gunicorn==19.6.0
+gunicorn==19.7.0
 boto==2.46.1
 lazy-object-proxy==1.2.2
 wrapt==1.10.8
