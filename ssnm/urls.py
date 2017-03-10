@@ -1,4 +1,5 @@
 import django.contrib.auth.views
+import django.views.static
 import djangowind.views
 import flashpolicies.views
 
