@@ -91,7 +91,7 @@ django-stagingcontext==0.1.0
 django-impersonate==1.1
 django-registration-redux==1.6
 django-markwhat==1.5.1
-django-storages==1.5.2
+django-storages==1.6.1
 django-cacheds3storage==0.1.2
 django-flashpolicies==1.9
 django-smtp-ssl==1.0
