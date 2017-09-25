@@ -1,6 +1,6 @@
 '''Each view renders page of site with the excection of
  display - that method deals with the flash in the web page.'''
-from xml.dom.minidom import parseString
+from xml.dom.minidom import parseString  # nosec
 
 from django import forms
 from django.conf import settings
@@ -26,7 +26,7 @@ def display(request, map_id):
         return HttpResponse("Nothing in request POST.")
 
     #  parse post request and get information
-    dom = parseString(post)
+    dom = parseString(post)  # nosec
     action = dom.getElementsByTagName("action")[0].firstChild.toxml()
     ecomap = Ecomap.objects.get(pk=map_id)
 
