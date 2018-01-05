@@ -2,7 +2,7 @@ Django==1.11.9 # pyup: <2.0
 
 pytz==2017.3
 feedparser==5.2.1
-Markdown==2.6.10
+Markdown==2.6.11
 pyenchant==2.0.0
 smartypants==2.0.1
 uuid==1.30
