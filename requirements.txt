@@ -18,7 +18,7 @@ configparser==3.5.0
 flake8==3.5.0
 cssselect==1.0.3
 BeautifulSoup==3.2.1
-lxml==4.1.1
+lxml==4.2.0
 fuzzywuzzy==0.16.0
 sure==1.4.7
 ipdb==0.11
